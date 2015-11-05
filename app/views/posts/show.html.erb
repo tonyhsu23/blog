@@ -1,0 +1,20 @@
+<div>
+  <p>
+    <%= @post.title %> by
+    <%= @post.author %> <br>
+    <%= @post.content %>
+  </p>
+</div>
+
+<div>
+  <h3>comment</h3>
+  <%= form_for @comment do |f| %>
+    name <%= f.text_field :respondent %> 
+    content <%= f.text_area :response %>
+    <!-- to do: use Ajax to submit form to avoid refresh of page -->
+  <% end %>
+</div>  
+
+<div>
+  <%= link_to 'Back', root_path %>
+</div>

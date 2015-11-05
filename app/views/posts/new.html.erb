@@ -1,0 +1,6 @@
+<%= form_for @post do |f| %>
+  name <%= f.text_field :author %> <br>
+  title <%= f.text_field :title %> <br>
+  content <%= f.text_area :content %> <br>
+  <%= f.submit "Post It!" %>
+<% end %>

@@ -1,1 +1,17 @@
-<h1>hello world</h1>
+<div>
+  <h1>My Blog</h1>
+
+  <div>
+    new post
+    <%= link_to 'Create', new_post_path %>
+  </div>
+
+  <% if @posts.count == 0 %>
+    no posts
+  <% else %>
+    <% @posts.each do |p| %>
+      <%= link_to p.title, post_path(p) %> <br>
+    <% end %> 
+  <% end %>
+
+</div>
