@@ -8,10 +8,24 @@
 
 <div>
   <h3>comment</h3>
-  <%= form_for @comment do |f| %>
+  <div>
+  <% comment_size = @comments.count %>
+    <% if @comments.count == 0 %>
+      no comments
+    <% else %>
+      <div class="comments">
+        <% @comments.each_with_index do |comment, index| %>
+          <%= render comment %> 
+          <% break if index+1 == comment_size %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <%= form_for([@post, @comment],remote: true) do |f| %>
     name <%= f.text_field :respondent %> 
     content <%= f.text_area :response %>
-    <!-- to do: use Ajax to submit form to avoid refresh of page -->
+    <%= f.submit "submit" %>
   <% end %>
 </div>  
 
