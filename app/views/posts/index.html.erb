@@ -10,7 +10,9 @@
     no posts
   <% else %>
     <% @posts.each do |p| %>
-      <%= link_to p.title, post_path(p) %> <br>
+      <%= link_to p.title, post_path(p) %>
+      <%= link_to 'delete', post_path(p), method: :delete, :confirm => :"Are you sure?" %> 
+      <br> 
     <% end %> 
   <% end %>
 

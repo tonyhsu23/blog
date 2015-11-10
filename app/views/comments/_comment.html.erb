@@ -1,4 +1,5 @@
 <%= div_for comment do %>
   name <%= comment.respondent %>
-  content <%= comment.response %> <br> 
+  content <%= comment.response %>
+  <%= link_to 'delete', post_comment_path(@post, comment), method: :delete, remote: true %><br> 
 <% end %>

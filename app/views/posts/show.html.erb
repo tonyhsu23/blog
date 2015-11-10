@@ -10,7 +10,7 @@
   <h3>comment</h3>
   <div>
   <% comment_size = @comments.count %>
-    <% if @comments.count == 0 %>
+    <% if comment_size == 0 %>
       no comments
     <% else %>
       <div class="comments">
@@ -22,7 +22,7 @@
     <% end %>
   </div>
 
-  <%= form_for([@post, @comment],remote: true) do |f| %>
+  <%= form_for([@post, @comment], remote: true) do |f| %>
     name <%= f.text_field :respondent %> 
     content <%= f.text_area :response %>
     <%= f.submit "submit" %>
