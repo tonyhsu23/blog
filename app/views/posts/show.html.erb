@@ -9,17 +9,11 @@
 <div>
   <h3>comment</h3>
   <div>
-  <% comment_size = @comments.count %>
-    <% if comment_size == 0 %>
-      no comments
-    <% else %>
-      <div class="comments">
-        <% @comments.each_with_index do |comment, index| %>
-          <%= render comment %> 
-          <% break if index+1 == comment_size %>
-        <% end %>
-      </div>
-    <% end %>
+    <div class="comments">
+      <% @comments.each_with_index do |comment, index| %>
+        <%= render comment %> 
+      <% end %>
+    </div> 
   </div>
 
   <%= form_for([@post, @comment], remote: true) do |f| %>

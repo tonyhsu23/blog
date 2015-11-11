@@ -1,10 +1,11 @@
 class PostsController < ApplicationController
+  before_action :find_post, only: [:show, :destroy]
+
 	def index
 		@posts = Post.all
 	end
 
   def show
-    @post = Post.find(params[:id])
     @comments = @post.comments
     @comment = @post.comments.build
   end
@@ -24,9 +25,12 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
     @post.destroy
     redirect_to root_path
+  end
+
+  def find_post
+    @post = Post.find(params[:id])
   end
 
   private
