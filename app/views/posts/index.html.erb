@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default navbar-fix-top">
   <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">My Blog</a>
+      <%= link_to "My Blog", root_path, class: "navbar-brand" %>
     </div>
     <div class="navbar-collapse">
       <ul class="nav navbar-nav">
@@ -13,32 +13,31 @@
   </div>
 </nav>
 
-<div class="container"> 
-  <div class="col-md-8 col-md-offset-2">
-    <% if @posts.count == 0 %>
-      no posts
-    <% else %>
-      <table class="table table-striped">
-        <h2>Posts</h2>
-        <tbody>
-          <% @posts.each_with_index do |post, index| %>       
-            <tr>
-              <th>#</th>
-              <th>Title</th>
-              <th>Author</th>
-              <th></th>
-            </tr>
-            <tr>
-              <td><%= index+1 %></td>
-              <td><%= link_to post.title, post_path(post) %></td>
-              <td><%= post.author %></td>
-              <td>
-                <%= link_to 'Delete', post_path(post), method: :delete, data: { confirm: "Are you sure?" } %> 
-              </td>
-            </tr>
-          <% end %> <!-- end of loop -->
-        </tbody>
-      </table> 
-    <% end %> <!-- end of if else -->
-  </div>
+<div class="container col-md-8 col-md-offset-2">
+  <% if @posts.count == 0 %>
+    no posts
+  <% else %>
+    <table class="table table-striped">
+      <h2>Posts</h2>
+      <tbody>
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+          <th>Author</th>
+          <th></th>
+        </tr>
+        <% @posts.each_with_index do |post, index| %>                
+          <tr>
+            <td><%= index+1 %></td>
+            <td><%= link_to post.title, post_path(post) %></td>
+            <td><%= post.author %></td>
+            <td>
+              <%= link_to 'Delete', post_path(post), method: :delete, data: { confirm: "Are you sure?" } %> 
+            </td>
+          </tr>
+        <% end %> <!-- end of loop -->
+      </tbody>
+    </table> 
+  <% end %> <!-- end of if else -->
 </div>
+

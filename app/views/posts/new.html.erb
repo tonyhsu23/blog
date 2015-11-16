@@ -1,6 +1,36 @@
-<%= form_for @post do |f| %>
-  name <%= f.text_field :author %> <br>
-  title <%= f.text_field :title %> <br>
-  content <%= f.text_area :content %> <br>
-  <%= f.submit "Post It!" %>
-<% end %>
+<nav class="navbar navbar-default navbar-fix-top">
+  <div class="container">
+    <div class="navbar-header">
+      <%= link_to "My Blog", root_path, class: "navbar-brand" %>     
+    </div>
+    <div class="navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li>
+          <%= link_to 'Create Post', new_post_path %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <%= form_for @post do |f| %>
+    <div class="form-inline">   
+      <div class="form-group">
+        <%= f.text_field :title, placeholder: "title",size: "50", class: "form-control" %>
+      </div>
+      <div class="form-group col-md-offset-2">
+        <label for="author">Author</label>
+        <%= f.text_field :author, placeholder: "name", class: "form-control" %>
+      </div>     
+    </div>
+    <br>
+    <div class="form-group">
+      <%= f.text_area :content, placeholder: "content",rows: "20", class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.submit "Post It!", class: "btn btn-primary" %>
+      <%= link_to "Cancel", posts_path, class: "btn btn-danger" %>
+    </div>
+  <% end %>
+</div>
