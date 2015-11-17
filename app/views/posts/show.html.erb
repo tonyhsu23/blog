@@ -1,28 +1,48 @@
-<div>
-  <p>
-    <%= @post.title %> by
-    <%= @post.author %> <br>
+<nav class="navbar navbar-default navbar-fix-top">
+  <div class="container">
+    <div class="navbar-header">
+      <%= link_to "My Blog", root_path, class: "navbar-brand" %>
+    </div>
+    <div class="navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li>
+          <%= link_to 'Create Post', new_post_path %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container">
+  <h1>
+    <%= @post.title %>
+    <small>by <%= @post.author %></small>
+  </h1>
+  <p class="lead jumbotron">
     <%= @post.content %>
   </p>
-</div>
 
-<div>
-  <h3>comment</h3>
-  <div>
+  <hr>
+
+  <h4>Comment</h4>
+  <%= form_for([@post, @comment], remote: true) do |f| %>
+    <div class="form-group">
+      <%= f.text_field :respondent, placeholder: "name", class: "form-control" %> 
+    </div>
+    <div class="form-group">
+      <%= f.text_area :response, placeholder: "comment", class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.submit "submit", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+
+  <div class="list-group list-group-item">
     <div class="comments">
       <% @comments.each_with_index do |comment, index| %>
         <%= render comment %> 
       <% end %>
     </div> 
   </div>
-
-  <%= form_for([@post, @comment], remote: true) do |f| %>
-    name <%= f.text_field :respondent %> 
-    content <%= f.text_area :response %>
-    <%= f.submit "submit" %>
-  <% end %>
-</div>  
-
-<div>
-  <%= link_to 'Back', root_path %>
 </div>
