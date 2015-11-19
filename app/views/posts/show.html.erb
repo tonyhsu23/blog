@@ -24,7 +24,7 @@
 
   <div class="list-group list-group-item">
     <div class="comments">
-      <% @comments.each_with_index do |comment, index| %>
+      <% @comments.each do |comment| %>
         <%= render comment %> 
       <% end %>
     </div> 
