@@ -1,7 +1,7 @@
 <div class="container">
   <h1>
     <%= @post.title %>
-    <small>by <%= @post.author %></small>
+    <small>by <%= @post.user.first_name %> <%= @post.user.last_name %></small>
   </h1>
   <p class="lead jumbotron">
     <%= @post.content %>
@@ -11,9 +11,6 @@
 
   <h4>Comment</h4>
   <%= form_for([@post, @comment], remote: true) do |f| %>
-    <div class="form-group">
-      <%= f.text_field :respondent, placeholder: "name", class: "form-control" %> 
-    </div>
     <div class="form-group">
       <%= f.text_area :response, placeholder: "comment", class: "form-control" %>
     </div>

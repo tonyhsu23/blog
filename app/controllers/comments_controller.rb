@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :find_post
+  before_action :require_user
 
   def create
     @comment = @post.comments.new(comment_params)
@@ -17,7 +18,7 @@ class CommentsController < ApplicationController
 
   private
   def comment_params
-    params.require(:comment).permit(:response, :respondent)
+    params.require(:comment).permit(:response)
   end
   
 end

@@ -1,7 +1,7 @@
 <% if comment.id %>
   <%= div_for comment do %>
     <h4>
-      <%= comment.respondent %>
+      <%= comment.post.user.first_name %> <%= comment.post.user.last_name %>
       <small>
         <%= link_to 'delete', post_comment_path(@post, comment), class: "label label-danger", method: :delete, remote: true %> 
       </small>
