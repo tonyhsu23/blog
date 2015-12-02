@@ -9,7 +9,7 @@
           <th>#</th>
           <th>Title</th>
           <th>Author</th>
-          <th></th>
+          <th>action</th>
         </tr>
         <% @posts.each_with_index do |post, index| %>                
           <tr>
@@ -17,7 +17,9 @@
             <td><%= link_to post.title, post_path(post) %></td>
             <td><%= post.user.first_name %> <%= post.user.last_name %></td>
             <td>
-              <%= link_to 'Delete', post_path(post), method: :delete, data: { confirm: "Are you sure?" } %> 
+              <% if is_author(post.id) %>
+                <%= link_to 'Delete', post_path(post), method: :delete, data: { confirm: "Are you sure?" } %>
+              <% end %>
             </td>
           </tr>
         <% end %> <!-- end of loop -->

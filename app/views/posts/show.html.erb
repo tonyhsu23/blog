@@ -2,6 +2,11 @@
   <h1>
     <%= @post.title %>
     <small>by <%= @post.user.first_name %> <%= @post.user.last_name %></small>
+    <small>
+      <% if is_author(@post.id) %>
+        <%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: "Are you sure?" , }, class: "label label-danger" %>
+      <% end %>
+    </small>
   </h1>
   <p class="lead jumbotron">
     <%= @post.content %>
