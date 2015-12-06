@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  helper_method :current_user, :is_author
+  helper_method :current_user, :is_author, :is_repondent, :find_respondent, :is_login
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -13,8 +13,22 @@ class ApplicationController < ActionController::Base
     redirect_to login_path unless current_user  
   end
 
+  def is_login
+    return false unless session[:user_id]
+    true
+  end
+
   def is_author(id)
     return false unless session[:user_id]
     current_user == Post.find(id).user
+  end
+
+  def is_repondent(id)
+    return false unless session[:user_id]
+    current_user.id == id
+  end
+
+  def find_respondent(user_id)
+    @user = User.find(user_id)
   end
 end

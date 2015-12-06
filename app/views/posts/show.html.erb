@@ -15,14 +15,19 @@
   <hr>
 
   <h4>Comment</h4>
-  <%= form_for([@post, @comment], remote: true) do |f| %>
-    <div class="form-group">
-      <%= f.text_area :response, placeholder: "comment", class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.submit "submit", class: "btn btn-primary" %>
-    </div>
-  <% end %>
+  <% if is_login %>
+    <%= form_for([@post, @comment], remote: true) do |f| %>
+      <div class="form-group">
+        <%= f.text_area :response, placeholder: "comment", class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.hidden_field :user_id, value: current_user.id, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.submit "submit", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  <% end %> 
 
   <div class="list-group list-group-item">
     <div class="comments">
