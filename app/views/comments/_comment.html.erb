@@ -1,9 +1,8 @@
 <% if comment.id %>
   <%= div_for comment do %>
     <h4>
-    <% user = find_respondent(comment.user_id) %>
-      <%= user.first_name %> <%= user.last_name %> 
-      <% if is_repondent(comment.user_id) %>
+      <%= comment.user.first_name %> <%= comment.user.last_name %> 
+      <% if is_repondent(comment.id) %>
         <small>
           <%= link_to 'delete', post_comment_path(@post, comment), class: "label label-danger", method: :delete, remote: true %> 
         </small>

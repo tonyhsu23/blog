@@ -21,9 +21,6 @@
         <%= f.text_area :response, placeholder: "comment", class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= f.hidden_field :user_id, value: current_user.id, class: "form-control" %>
-      </div>
-      <div class="form-group">
         <%= f.submit "submit", class: "btn btn-primary" %>
       </div>
     <% end %>
