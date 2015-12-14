@@ -12,6 +12,6 @@
  *
  *= require_tree .
  *= require_self
- *= require bootstrap.min
- *= require general
  */
+@import "font-awesome-sprockets";
+@import "font-awesome";

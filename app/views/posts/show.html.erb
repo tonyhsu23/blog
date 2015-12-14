@@ -1,7 +1,21 @@
+<header class="intro-header" style="background-image: url('/assets/post-bg.jpg')">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="site-heading">
+          <h1><%= @post.title %></h1>
+          <hr class="small">
+          <span class="subheading">
+            <%= @post.user.first_name %> <%= @post.user.last_name %>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
 <div class="container">
   <h1>
-    <%= @post.title %>
-    <small>by <%= @post.user.first_name %> <%= @post.user.last_name %></small>
     <small>
       <% if is_author(@post.id) %>
         <%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: "Are you sure?" , }, class: "label label-danger" %>
