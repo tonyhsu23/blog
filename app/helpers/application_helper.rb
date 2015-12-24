@@ -3,11 +3,11 @@ module ApplicationHelper
     controller = params[:controller]
     action = params[:action]  
     if controller == 'users' || controller == 'sessions'
-      '/assets/contact-bg.jpg'
+      image_path "contact-bg.jpg"
     elsif controller == 'posts' && (action == 'index' || action == 'new')
-      '/assets/ggb.jpg'
+      image_path "ggb.jpg"
     elsif controller == 'abouts'
-      '/assets/me.jpg'
+      image_path "me.jpg"
     else
       nil
     end
