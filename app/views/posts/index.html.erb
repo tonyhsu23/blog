@@ -1,7 +1,7 @@
 <%= render 'layouts/header' %>
 <div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+  <div class="row">   
+    <div class="col-lg-7 col-lg-offset-1 col-md-7 col-md-offset-1">
       <% if @posts.count == 0 %>
         no posts
       <% else %>
@@ -11,9 +11,6 @@
               <h2 class="post-title">
                 <%= post.title %>
               </h2>
-              <h3 class="post-subtitle">
-                <%= truncate(post.content, length: 50) %>
-              </h3>
             </a>
             <p class="post-meta">Posted by
               <a><%= post.user.first_name %> <%= post.user.last_name %></a>
@@ -24,7 +21,8 @@
         <% end %>
       <% end %>
     </div>
+    <div class="col-lg-4 col-md-4">
+      <script async src="https://static.medium.com/embed.js"></script><a class="m-profile" href="https://medium.com/@tonyhsu23">Tony Hsu</a>
+    </div>
   </div>
 </div>
-
-

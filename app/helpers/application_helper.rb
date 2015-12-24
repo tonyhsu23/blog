@@ -5,9 +5,9 @@ module ApplicationHelper
     if controller == 'users' || controller == 'sessions'
       '/assets/contact-bg.jpg'
     elsif controller == 'posts' && (action == 'index' || action == 'new')
-      '/assets/home-bg.jpg'
+      '/assets/ggb.jpg'
     elsif controller == 'abouts'
-      '/assets/about-bg.jpg'
+      '/assets/me.jpg'
     else
       nil
     end
@@ -18,6 +18,8 @@ module ApplicationHelper
   end
 
   def set_header_content
-    (params[:controller] == 'abouts') ? "My name is Tony Hsu." : "A Clean Blog Theme by Start Bootstrap"
+    about_content = simple_format("I'm a Web Developer. \n Passionate About Technology \n Ruby on Rails and Photography")
+    blog_content = simple_format("Daily Life and Technology \n Follow me on Medium")
+    (params[:controller] == 'abouts') ? about_content : blog_content
   end 
 end

@@ -6,6 +6,19 @@
         <%= f.text_field :title, placeholder: "title",size: "50", class: "form-control" %>
       </div>   
     </div>
+    <hr>
+    <%= f.cktext_area :content, id: "ckeditor" %>
+    <hr>
+    <div class="form-group">
+      <%= f.submit "Post It!", class: "btn btn-primary" %>
+      <%= link_to "Cancel", posts_path, class: "btn btn-danger" %>
+    </div>
+
+    <!-- <div class="form-inline">   
+      <div class="form-group">
+        <%= f.text_field :title, placeholder: "title",size: "50", class: "form-control" %>
+      </div>   
+    </div>
     <br>
     <div class="form-group">
       <%= f.text_area :content, placeholder: "content",rows: "20", class: "form-control" %>
@@ -13,6 +26,12 @@
     <div class="form-group">
       <%= f.submit "Post It!", class: "btn btn-primary" %>
       <%= link_to "Cancel", posts_path, class: "btn btn-danger" %>
-    </div>
+    </div> -->
   <% end %>
 </div>
+
+<script>
+  $(document).on('ready page:load', function () {
+    CKEDITOR.replace('ckeditor');
+  });
+</script>

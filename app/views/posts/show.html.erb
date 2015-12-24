@@ -5,7 +5,9 @@
         <div class="site-heading">
           <h1><%= @post.title %></h1>
           <hr class="small">
-          <span class="subheading"><%= @post.user.first_name %> <%= @post.user.last_name %></span>
+          <span class="subheading">written by
+           <%= @post.user.first_name %> <%= @post.user.last_name %>
+          </span>
         </div>
       </div>
     </div>
@@ -19,9 +21,9 @@
       <% end %>
     </small>
   </h1>
-  <p class="lead jumbotron">
-    <%= @post.content %>
-  </p>
+  <div class="lead jumbotron">
+    <%= simple_format(@post.content) %>
+  </div>
 
   <hr>
 
