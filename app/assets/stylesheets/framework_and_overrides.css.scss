@@ -396,3 +396,13 @@ body {
     width: 200px;
     border-top: 3px solid #e7e7e7;
 }
+
+/* white box to seperate from body and background */
+.box {
+  margin-top: 90px;
+  padding: 10px 10px 10px 10px;
+  background-color: white;
+  border: 1px solid #D3D3D3;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
