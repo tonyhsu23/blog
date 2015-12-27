@@ -1,4 +1,4 @@
-<header class="intro-header" style="background-image: url('/assets/post-bg.jpg')">
+<header class="intro-header" style="background-image: url(<%= image_path "japan.jpg" %>)">
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -8,6 +8,7 @@
           <span class="subheading">written by
            <%= @post.user.first_name %> <%= @post.user.last_name %>
           </span>
+          <div style="margin:90px"></div>
         </div>
       </div>
     </div>
