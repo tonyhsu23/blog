@@ -4,7 +4,7 @@ module ApplicationHelper
     action = params[:action]  
     if controller == 'users' || controller == 'sessions'
       image_path "contact-bg.jpg"
-    elsif controller == 'posts' && (action == 'index' || action == 'new')
+    elsif controller == 'posts'
       image_path "ggb.jpg"
     elsif controller == 'abouts'
       image_path "me.jpg"
